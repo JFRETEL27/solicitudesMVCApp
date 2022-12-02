@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SolicitudesMVC.Models.Solicitud>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Solicitudes</h1>
+
+<p>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Regresar al Menú Principal</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaSolicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodRegistrante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Periodo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaSolicitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodRegistrante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Periodo)
+                </td>
+                <td>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdSolicitud">Ver Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

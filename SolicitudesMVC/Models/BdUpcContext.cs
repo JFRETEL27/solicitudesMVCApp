@@ -19,9 +19,9 @@ public partial class BdUpcContext : DbContext
 
     public virtual DbSet<Curso> Cursos { get; set; }
 
-    public virtual DbSet<DetalleSolicitud> DetalleSolicituds { get; set; }
+    public virtual DbSet<DetalleSolicitud> DetalleSolicitudes { get; set; }
 
-    public virtual DbSet<Solicitud> Solicituds { get; set; }
+    public virtual DbSet<Solicitud> Solicitudes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Server = localhost; Database = bd_upc; Integrated Security = True; Encrypt = False;");
@@ -83,7 +83,7 @@ public partial class BdUpcContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DetalleSolicitud_Curso");
 
-            entity.HasOne(d => d.IdSolicitudNavigation).WithMany(p => p.DetalleSolicituds)
+            entity.HasOne(d => d.IdSolicitudNavigation).WithMany(p => p.DetalleSolicitudes)
                 .HasForeignKey(d => d.IdSolicitud)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DetalleSolicitud_Solicitud");
@@ -107,7 +107,7 @@ public partial class BdUpcContext : DbContext
                 .HasMaxLength(250)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdAlumnoNavigation).WithMany(p => p.Solicituds)
+            entity.HasOne(d => d.IdAlumnoNavigation).WithMany(p => p.Solicitudes)
                 .HasForeignKey(d => d.IdAlumno)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Solicitud_Alumno");

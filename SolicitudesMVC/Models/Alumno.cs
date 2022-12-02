@@ -11,5 +11,5 @@ public partial class Alumno
 
     public string Apellidos { get; set; } = null!;
 
-    public virtual ICollection<Solicitud> Solicituds { get; } = new List<Solicitud>();
+    public virtual ICollection<Solicitud> Solicitudes { get; } = new List<Solicitud>();
 }

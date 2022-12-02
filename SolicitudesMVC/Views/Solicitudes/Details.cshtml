@@ -1,0 +1,47 @@
+﻿@model SolicitudesMVC.Models.Solicitud
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle de la solicitud</h1>
+
+<div>
+    <h4>Solicitud</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaSolicitud)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaSolicitud)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodRegistrante)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodRegistrante)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Carrera)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Periodo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Periodo)
+        </dd>
+      @*  <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdAlumnoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdAlumnoNavigation.IdAlumno)
+        </dd>*@
+    </dl>
+</div>
+<div>  
+    <a asp-action="Index">Retornar a la lista de solicitudes</a>
+</div>

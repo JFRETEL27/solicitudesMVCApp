@@ -5,7 +5,7 @@ namespace SolicitudesMVC.Models;
 
 public partial class Solicitud
 {
-    public Guid IdSolicitud { get; set; }
+    public Guid IdSolicitud { get; set; } = Guid.Empty;
 
     public Guid IdAlumno { get; set; }
 
@@ -17,7 +17,8 @@ public partial class Solicitud
 
     public string Periodo { get; set; } = null!;
 
-    public virtual ICollection<DetalleSolicitud> DetalleSolicituds { get; } = new List<DetalleSolicitud>();
+    public virtual ICollection<DetalleSolicitud>? DetalleSolicitudes { get; } = new List<DetalleSolicitud>();
 
-    public virtual Alumno IdAlumnoNavigation { get; set; } = null!;
+    public virtual Alumno? IdAlumnoNavigation { get; set; } = null!;
+
 }
