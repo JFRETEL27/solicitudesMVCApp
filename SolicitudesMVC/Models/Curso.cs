@@ -15,5 +15,5 @@ public partial class Curso
 
     public bool Activo { get; set; }
 
-    public virtual ICollection<DetalleSolicitud> DetalleSolicituds { get; } = new List<DetalleSolicitud>();
+    public virtual ICollection<DetalleSolicitud> DetalleSolicitudes { get; } = new List<DetalleSolicitud>();
 }

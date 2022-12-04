@@ -78,7 +78,7 @@ public partial class BdUpcContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdCursoNavigation).WithMany(p => p.DetalleSolicituds)
+            entity.HasOne(d => d.IdCursoNavigation).WithMany(p => p.DetalleSolicitudes)
                 .HasForeignKey(d => d.IdCurso)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DetalleSolicitud_Curso");

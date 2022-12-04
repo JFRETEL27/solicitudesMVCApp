@@ -48,8 +48,30 @@ namespace SolicitudesMVC.Controllers
         // GET: DetalleSolicitud/Create
         public IActionResult Create()
         {
-            ViewData["IdCurso"] = new SelectList(_context.Cursos, "IdCurso", "IdCurso");
-            ViewData["IdSolicitud"] = new SelectList(_context.Solicitudes, "IdSolicitud", "IdSolicitud");
+            #region DataDummy
+            List<Profesor> profesores = new List<Profesor>{
+                new Profesor { IdProfesor = 1, Nombre = "Juan Mendoza"},
+                new Profesor { IdProfesor = 2, Nombre = "Pedro Rodriguez" },
+                new Profesor { IdProfesor = 3, Nombre = "Luis Peña"}
+            };
+            List<Aula> aulas = new List<Aula>{
+                new Aula { IdAula = 101, Nombre = "A-101"},
+                new Aula { IdAula = 102, Nombre = "A-102" },
+                new Aula { IdAula = 103, Nombre = "A-103"}
+            };
+            List<Sede> sedes = new List<Sede>{
+                new Sede { IdSede = 10, Nombre = "Campus Monterrico"},
+                new Sede { IdSede = 11, Nombre = "Campus San Isidro" },
+                new Sede { IdSede = 12, Nombre = "Campus Villa"},
+                new Sede { IdSede = 13, Nombre = "Campus San Miguel"}
+            };
+            #endregion
+            //ViewData["Solicitud"] = new SelectList(_context.Solicitudes, "IdSolicitud", "IdSolicitud");
+            ViewData["Curso"] = new SelectList(_context.Cursos, "IdCurso", "IdCurso");
+            ViewData["Profesor"] = new SelectList(profesores, "IdProfesor", "Nombre");
+            ViewData["Aula"] = new SelectList(aulas, "IdAula", "Nombre");
+            ViewData["Sede"] = new SelectList(sedes, "IdSede", "Nombre");
+
             return View();
         }
 

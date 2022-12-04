@@ -1,7 +1,7 @@
 ﻿@model SolicitudesMVC.Models.Solicitud
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registro de Solicitud";
 }
 
 <h1>Registro de Solicitud</h1>
@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdAlumno" class="control-label">Alumno</label>
-                <select asp-for="IdAlumno" class="form-control" asp-items="ViewBag.IdAlumno"></select>
+                <select asp-for="IdAlumno" class="form-control" asp-items="ViewBag.Alumno"></select>
             </div>
             <br />
             <div class="form-group">
@@ -30,27 +30,36 @@
             </div>
             <br />
             <div class="form-group">
-                <select asp-for="Carrera" class="form-control">
-                    <option value="">Selecciona una carrera</option>
-                    <option value="1">Administración Y Finanzas</option>
-                    <option value="2">Administración Y Marketing</option>
-                    <option value="3">Administración Y Negocios Internacionales</option>
-                </select>
-                <span asp-validation-for="Carrera" class="text-danger"></span>
+                <label asp-for="Carrera" class="control-label">Carrera</label>
+                <select asp-for="Carrera" class="form-control" asp-items="ViewBag.Carrera"></select>
             </div>
             <br />
             <div class="form-group">
-                <select asp-for="Periodo" class="form-control">
-                    <option value="">Selecciona un periodo</option>
-                    <option value="1">2021-1</option>
-                    <option value="2">2021-2</option>
-                    <option value="3">2022-1</option>
-                    <option value="4">2022-2</option>
-                </select>
-                <span asp-validation-for="Periodo" class="text-danger"></span>
+                <label asp-for="Periodo" class="control-label">Periodo</label>
+                <select asp-for="Periodo" class="form-control" asp-items="ViewBag.Periodo"></select>
+            </div>
+
+            @* <div class="form-group">
+                <label asp-for="Curso" class="control-label">Cursos</label>
+                <select asp-for="Curso" class="form-control" asp-items="ViewBag.Curso"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profesor" class="control-label">Profesor</label>
+                <select asp-for="Profesor" class="form-control" asp-items="ViewBag.Profesor"></select>
             </div>
             <br />
+            <div class="form-group">
+                <label asp-for="Aula" class="control-label">Aula</label>
+                <select asp-for="Aula" class="form-control" asp-items="ViewBag.Aula"></select>
+            </div>
             <br />
+            <div class="form-group">
+                <label asp-for="Sede" class="control-label">Sede</label>
+                <select asp-for="Sede" class="form-control" asp-items="ViewBag.Sede"></select>
+            </div>*@
+            <br />
+
+            <br />  
             <div class="form-group">
                 <input type="submit" value="Registrar" class="btn btn-primary" />
             </div>

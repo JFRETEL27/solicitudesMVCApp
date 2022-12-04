@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SolicitudesMVC.Models;
 
 namespace SolicitudesMVC.Controllers
@@ -45,7 +47,25 @@ namespace SolicitudesMVC.Controllers
         // GET: Solicitudes/Create
         public IActionResult Create()
         {
-            ViewData["IdAlumno"] = new SelectList(_context.Alumnos, "IdAlumno", "Nombres");
+            #region DataDummy
+            List<Carrera> carreras = new List<Carrera>{
+                new Carrera { IdCarrera = 1, Nombre = "Administración Y Finanzas"},
+                new Carrera { IdCarrera = 2, Nombre = "Administración Y Marketing" },
+                new Carrera { IdCarrera = 3, Nombre = "Administración Y Negocios Internacionales"}
+            };
+            List<Periodo> periodos = new List<Periodo>{
+                new Periodo { IdPeriodo = 1, Nombre = "2021-1"},
+                new Periodo { IdPeriodo = 2, Nombre = "2021-2" },
+                new Periodo { IdPeriodo = 3, Nombre = "2022-1"},
+                new Periodo { IdPeriodo = 4, Nombre = "2022-2"}
+            };        
+            #endregion
+
+            //Cabecera
+            ViewData["Alumno"] = new SelectList(_context.Alumnos, "IdAlumno", "Nombres");
+            ViewData["Carrera"] = new SelectList(carreras, "IdCarrera", "Nombre");
+            ViewData["Periodo"] = new SelectList(periodos, "IdPeriodo", "Nombre");
+     
             return View();
         }
 

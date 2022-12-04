@@ -16,9 +16,7 @@ public partial class Solicitud
     public string Carrera { get; set; } = null!;
 
     public string Periodo { get; set; } = null!;
-
     public virtual ICollection<DetalleSolicitud>? DetalleSolicitudes { get; } = new List<DetalleSolicitud>();
-
     public virtual Alumno? IdAlumnoNavigation { get; set; } = null!;
 
 }
